@@ -12,10 +12,10 @@
     <title>Avia Tickets</title>
   </head>
   <body>
-    <nav>
-      <div class="nav-wrapper header purple darken-1 ">
+    <nav class="header purple darken-1">
+      <div class="nav-wrapper">
         <div class="container d-flex align-items-center">
-          <div class="logo-wrapper d-flex align-items-center">
+          <div class="logo d-flex align-items-center">
             <i class="large material-icons">flight_takeoff</i>
             <a href="#" class="brand-logo">Avia Tickets</a>
           </div>
@@ -35,20 +35,20 @@
     <div class="form-section">
       <div class="container">
         <div class="row d-flex">
-          <div class="col s12 m6 mx-auto">
-            <div class="card ">
+          <div class="col m6 mx-auto">
+            <div class="card">
               <form name="locationControls">
-                <div class="card-content d-flex flex-column ">
+                <div class="card-content">
                   <span class="card-title">Search Tickets</span>
-                  <div class="input-field col s12">
+                  <div class="input-field">
                     <input
                       type="text"
                       id="autocomplete-origin"
-                      class="autocomplete "
+                      class="autocomplete"
                     />
                     <label for="autocomplete-origin">Origin</label>
                   </div>
-                  <div class="input-field col s12">
+                  <div class="input-field">
                     <input
                       type="text"
                       id="autocomplete-destination"
@@ -56,21 +56,21 @@
                     />
                     <label for="autocomplete-destination">Destination</label>
                   </div>
-                  <div class="input-field col s12">
+                  <div class="input-field">
                     <input
                       type="text"
                       class="datepicker"
                       id="datepicker-depart"
                     />
-                    <label for="datepicker-depart">Depart date </label>
+                    <label for="datepicker-depart">Depart date</label>
                   </div>
-                  <div class="input-field col s12">
+                  <div class="input-field">
                     <input
                       type="text"
                       class="datepicker"
                       id="datepicker-return"
                     />
-                    <label for="datepicker-return">Return date </label>
+                    <label for="datepicker-return">Return date</label>
                   </div>
                 </div>
                 <div class="card-action d-flex">
@@ -94,6 +94,12 @@
               </form>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="tickets-sections">
+      <div class="container">
+        <div class="row">
         </div>
       </div>
     </div>
