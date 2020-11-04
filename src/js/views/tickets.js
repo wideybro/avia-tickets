@@ -1,49 +1,49 @@
-import currencyUI from './currency';
+import currencyUI from "./currency";
 
 class TicketsUI {
-    constructor(currency) {
-        this.container = document.querySelector('.tickets-sections .row');
-        this.getСurrencySymbol =currency.getСurrencySymbol.bind(currency);
+  constructor(currency) {
+    this.container = document.querySelector(".tickets-sections .row");
+    this.getСurrencySymbol = currency.getСurrencySymbol.bind(currency);
+  }
+
+  renderTickets(tickets) {
+    this.clearContainer();
+
+    if (!tickets.length) {
+      this.showEmptyMsg();
+      return;
     }
 
-    renderTickets(tickets) {
-        this.clearContainer();
+    let fragment = "";
+    const currency = this.getСurrencySymbol();
 
-        if (!tickets.length) {
-            this.showEmptyMsg();
-            return;
-        }
+    tickets.forEach((ticket) => {
+      const template = TicketsUI.ticketTemplate(ticket, currency);
+      fragment += template;
+    });
 
-        let fragment = '';
-        const currency = this.getСurrencySymbol();
+    this.container.insertAdjacentHTML("afterbegin", fragment);
+  }
 
-        tickets.forEach(ticket => {
-            const template = TicketsUI.ticketTemplate(ticket, currency);
-            fragment += template;
-        });
+  clearContainer() {
+    this.container.innerHTML = "";
+  }
 
-        this.container.insertAdjacentHTML('afterbegin', fragment);
-    }
+  showEmptyMsg() {
+    const template = TicketsUI.emptyMsgTemplate();
+    this.container.insertAdjacentHTML("afterbegin", template);
+  }
 
-    clearContainer() {
-        this.container.innerHTML = '';
-    }
-
-    showEmptyMsg() {
-        const template = TicketsUI.emptyMsgTemplate();
-        this.container.insertAdjacentHTML('afterbegin', template);
-    }
-
-    static emptyMsgTemplate() {
-        return `
+  static emptyMsgTemplate() {
+    return `
         <div class="tickets-empty-res-msg">
           По вашему запросу билетов не найдено.
         </div>
         `;
-    }
+  }
 
-    static ticketTemplate(ticket, currency) {
-        return `
+  static ticketTemplate(ticket, currency) {
+    return `
         <div class="col s12 m6">
             <div class="card ticket-card">
                 <div class="ticket-airline d-flex align-items-center">
@@ -76,7 +76,7 @@ class TicketsUI {
             </div>
         </div>
         `;
-    }
+  }
 }
 
 const ticketsUI = new TicketsUI(currencyUI);
